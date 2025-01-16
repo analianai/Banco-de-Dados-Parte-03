@@ -43,7 +43,7 @@ CREATE TABLE cliente (
 Exibir a estrutura de uma tabela:
 
 ````sql
-DESCRIBE nome_da_tabela);
+DESCRIBE nome_da_tabela;
 ````
 
 3. Manipulação de Dados
@@ -52,7 +52,7 @@ Inserir dados na tabela:
 
 ````sql
 INSERT INTO nome_da_tabela (coluna1, coluna2, ...)
-VALUES (valor1, valor2, ...));
+VALUES (valor1, valor2, ...);
 ````
 
 Exemplo:
@@ -66,12 +66,12 @@ VALUES ('João Silva', 'joao@exemplo.com', '123456789');
 Consultar dados (selecionar registros):
 
 ````sql
-SELECT coluna1, coluna2 FROM nome_da_tabela); 
+SELECT coluna1, coluna2 FROM nome_da_tabela; 
 ````
 Exemplo:
 
 ````sql
-SELECT nome_cliente, email FROM cliente); 
+SELECT nome_cliente, email FROM cliente; 
 ````
 
 Atualizar dados:
@@ -79,28 +79,28 @@ Atualizar dados:
 ````sql
 UPDATE nome_da_tabela
 SET coluna1 = valor1, coluna2 = valor2
-WHERE condição); 
+WHERE condição; 
 ````
 Exemplo:
 
 
 UPDATE cliente
 SET telefone = '987654321'
-WHERE id_cliente = 1); 
+WHERE id_cliente = 1; 
 ````
 
 Excluir dados:
 
 ````sql
 DELETE FROM nome_da_tabela
-WHERE condição); 
+WHERE condição; 
 ````
 
 Exemplo:
 
 ````sql
 DELETE FROM cliente
-WHERE id_cliente = 1); 
+WHERE id_cliente = 1; 
 ````
 
 4. Relacionamentos e Chaves
@@ -109,7 +109,7 @@ Adicionar uma chave primária:
 
 ````sql
 ALTER TABLE nome_da_tabela
-ADD PRIMARY KEY (coluna)); 
+ADD PRIMARY KEY (coluna); 
 ```
 
 Adicionar uma chave estrangeira:
@@ -118,7 +118,7 @@ Adicionar uma chave estrangeira:
 ALTER TABLE nome_da_tabela
 ADD CONSTRAINT fk_nome_da_fk
 FOREIGN KEY (coluna)
-REFERENCES tabela_referenciada(coluna_referenciada)); 
+REFERENCES tabela_referenciada(coluna_referenciada); 
 ````
 
 5. Consultas Avançadas
@@ -127,7 +127,7 @@ Filtragem de dados:
 
 ````sql
 SELECT coluna1, coluna2 FROM nome_da_tabela
-WHERE condição);
+WHERE condição;
 ````
 
 Exemplo de filtro:
@@ -135,21 +135,21 @@ Exemplo de filtro:
 ````sql
 SELECT nome_cliente, email
 FROM cliente
-WHERE telefone = '123456789'); 
+WHERE telefone = '123456789'; 
 ````
 
 Ordenação dos resultados:
 
 ````sql
 SELECT coluna1, coluna2 FROM nome_da_tabela
-ORDER BY coluna1 [ASC|DESC]); 
+ORDER BY coluna1 [ASC|DESC]; 
 ````
 
 Limitar a quantidade de resultados:
 
 ````sql
 SELECT coluna1, coluna2 FROM nome_da_tabela
-LIMIT número_de_resultados); 
+LIMIT número_de_resultados; 
 ````
 
 6. Operações de Agregação
@@ -157,26 +157,26 @@ LIMIT número_de_resultados);
 Contar registros:
 
 ````sql
-SELECT COUNT(*) FROM nome_da_tabela); 
+SELECT COUNT(*) FROM nome_da_tabela; 
 ````
 
 Somar valores:
 
 ````sql
-SELECT SUM(coluna) FROM nome_da_tabela); 
+SELECT SUM(coluna) FROM nome_da_tabela; 
 ````
 
 Média de valores:
 
 ````sql
-SELECT AVG(coluna) FROM nome_da_tabela);
+SELECT AVG(coluna) FROM nome_da_tabela;
  ````
 
 Valor máximo ou mínimo:
 
 ````sql
-SELECT MAX(coluna) FROM nome_da_tabela); 
-SELECT MIN(coluna) FROM nome_da_tabela); 
+SELECT MAX(coluna) FROM nome_da_tabela; 
+SELECT MIN(coluna) FROM nome_da_tabela; 
 ````
 
 7. Modificando Tabelas
@@ -185,34 +185,34 @@ Adicionar uma coluna:
 
 ````sql
 ALTER TABLE nome_da_tabela
-ADD coluna tipo_dado); 
+ADD coluna tipo_dado; 
 ````
 
 Exemplo:
 
 ````sql
 ALTER TABLE cliente
-ADD endereco VARCHAR(255)); 
+ADD endereco VARCHAR(255); 
 ````
 
 Alterar o tipo de dado de uma coluna:
 
 ````sql
 ALTER TABLE nome_da_tabela
-MODIFY COLUMN coluna tipo_dado); 
+MODIFY COLUMN coluna tipo_dado; 
 ````
 
 Excluir uma coluna:
 
 ````sql
 ALTER TABLE nome_da_tabela
-DROP COLUMN coluna); 
+DROP COLUMN coluna; 
 ````
 
 Excluir uma tabela:
 
 ````sql
-DROP TABLE nome_da_tabela); 
+DROP TABLE nome_da_tabela; 
 ````
 
 8. Backup e Restauração
@@ -237,7 +237,7 @@ Junção entre tabelas (INNER JOIN):
 ````sql
 SELECT t1.coluna1, t2.coluna2
 FROM tabela1 t1
-INNER JOIN tabela2 t2 ON t1.coluna = t2.coluna); 
+INNER JOIN tabela2 t2 ON t1.coluna = t2.coluna; 
 ````
 
 Exemplo:
@@ -245,7 +245,7 @@ Exemplo:
 ````sql
 SELECT cliente.nome_cliente, produto.nome_produto
 FROM cliente
-INNER JOIN produto ON cliente.id_cliente = produto.id_cliente); 
+INNER JOIN produto ON cliente.id_cliente = produto.id_cliente; 
 ````
 
 ## cláusula CONSTRAINT
@@ -286,7 +286,7 @@ CREATE TABLE pedido (
     id_cliente INT,
     PRIMARY KEY (id_pedido),
     FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
-)); 
+); 
 ````
 
 Ou com a cláusula CONSTRAINT:
@@ -297,7 +297,7 @@ CREATE TABLE pedido (
     id_cliente INT,
     CONSTRAINT pk_pedido PRIMARY KEY (id_pedido),
     CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
-)); 
+); 
 ````
 
 3. Unique
@@ -308,7 +308,7 @@ CREATE TABLE cliente (
     id_cliente INT,
     email VARCHAR(255),
     CONSTRAINT unique_email UNIQUE (email)
-)); 
+); 
 ```` 
 
 
@@ -322,7 +322,7 @@ CREATE TABLE produto (
     nome_produto VARCHAR(255),
     preco DECIMAL(10, 2),
     CONSTRAINT check_preco CHECK (preco >= 0)
-)); 
+); 
 ````
 
 5. Not Null
@@ -333,7 +333,7 @@ A restrição NOT NULL garante que uma coluna não aceite valores nulos. Isso po
 CREATE TABLE cliente (
     id_cliente INT,
     nome_cliente VARCHAR(255) NOT NULL
-)); 
+); 
 ````
 
 Ou com a cláusula CONSTRAINT:
@@ -344,7 +344,7 @@ CREATE TABLE cliente (
     id_cliente INT,
     nome_cliente VARCHAR(255),
     CONSTRAINT nn_nome_cliente CHECK (nome_cliente IS NOT NULL)
-));
+);
 ````
 
 Exemplo Completo:
@@ -358,7 +358,7 @@ CREATE TABLE empresa (
     cnpj VARCHAR(18) NOT NULL,
     PRIMARY KEY (id_empresa),
     CONSTRAINT unique_cnpj UNIQUE (cnpj)
-)); 
+); 
 
 CREATE TABLE cliente (
     id_cliente INT AUTO_INCREMENT,
@@ -368,7 +368,7 @@ CREATE TABLE cliente (
     PRIMARY KEY (id_cliente),
     FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa),
     CONSTRAINT unique_email UNIQUE (email)
-)); 
+); 
 ````
 
 Neste exemplo:
