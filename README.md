@@ -81,9 +81,10 @@ UPDATE nome_da_tabela
 SET coluna1 = valor1, coluna2 = valor2
 WHERE condição; 
 ````
+
 Exemplo:
 
-
+````sql
 UPDATE cliente
 SET telefone = '987654321'
 WHERE id_cliente = 1; 
@@ -110,7 +111,7 @@ Adicionar uma chave primária:
 ````sql
 ALTER TABLE nome_da_tabela
 ADD PRIMARY KEY (coluna); 
-```
+````
 
 Adicionar uma chave estrangeira:
 
